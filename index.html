@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myninja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="app/module.js"></script>
 </head>
 
 <style>
@@ -134,7 +136,7 @@ input[type="button"]{
 
 <body>
 
-
+<div ng-controller="ninjacontroller">
     <div class="content">
         <ul class="col-12">
             <li class="col-3">Home</li>
@@ -157,21 +159,8 @@ input[type="button"]{
 
     <div class="prolist">
         <ul>
-            <li class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;&nbsp;<span class="cross">x</span></li>
-            <li  class="col-10"><div>Product</div><div>Price</div><span>color</span>&nbsp;&nbsp;<span class="cross">x</span></li>
+            <li class="col-10" ng-repeat="ninja in ninjas"><div>{{ninja.product}}</div><div>{{ninja.price | currency: 'Rs:'}}</div><span style="background-color: {{ninja.color}};">{{ninja.color}}</span>&nbsp;&nbsp;&nbsp;<span class="cross" ng-click="removeninja(ninja)">x</span></li>
+
             
         </ul>
     </div>
@@ -185,5 +174,7 @@ input[type="button"]{
 <p>LOG OUT</p>
     </div>
 
+
+</div>
 </body>
 </html>
