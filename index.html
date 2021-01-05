@@ -70,7 +70,7 @@ body{
         height: 40px;
         color: rgb(0, 0, 0);
         font-size: 19px;
-        float: left;
+       
         
     }
     .prolist div{
@@ -146,12 +146,12 @@ input[type="button"]{
     </div>
     <div class="firm">
 
-        <form action="">
+        <form ng-submit="addninja()">
 
-            <input type="text" placeholder="Enter Product" style="text-align: center;">
-            <input type="text" placeholder="Enter Price" style="text-align: center;">
-            <input type="text" placeholder="Enter color" style="text-align: center;">
-            <input type="button" value="submit">
+            <input type="text" id="product" ng-model="newninja.product">
+            <input type="text" id="price" ng-model="newninja.price">
+            <input type="text" id="color" ng-model="newninja.color">
+            <input type="submit" value="submit">
         </form>
 
     </div>
@@ -159,7 +159,7 @@ input[type="button"]{
 
     <div class="prolist">
         <ul>
-            <li class="col-10" ng-repeat="ninja in ninjas"><div>{{ninja.product}}</div><div>{{ninja.price | currency: 'Rs:'}}</div><span style="background-color: {{ninja.color}};">{{ninja.color}}</span>&nbsp;&nbsp;&nbsp;<span class="cross" ng-click="removeninja(ninja)">x</span></li>
+            <li class="col-10" ng-repeat="ninja in fil"><div>{{ninja.product}}</div><div>{{ninja.price | currency: 'Rs:'}}</div><span style="background-color: {{ninja.color}};">{{ninja.color}}</span>&nbsp;&nbsp;&nbsp;<span class="cross" ng-click="removeninja(ninja)">x</span></li>
 
             
         </ul>
